@@ -1,18 +1,31 @@
 __author__ = 'benjamin_sanchez'
 
+
 def main():
-    a_count = int(input)
+    a_count = int(input())
     if a_count <= 0:
         return "error"
     num_list = [int(x) for x in input().split()]
     for x in num_list:
-        neu_rng(x)
+        print(neu_rng(x), end=" ")
+
 
 def neu_rng(i):
-    i **= 2
-    if len(str(i)) < 8:
-        while len(str(i)) < 8:
-            i = "0" + str(i)
-    i = str(i)
-    i =
+    init_num = i
+    counter = 0
+    done = False
+    holder = set()
+    while not done:
+        i **= 2
+        if len(str(i)) < 8:
+            while len(str(i)) < 8:
+                i = "0" + str(i)
+        holder.update(i)
+        if int(str(i)[2:6]) in holder:
+            done = True
+        else:
+            i = int(str(i)[2:6])
+        counter += 1
+    return counter
+
 main()
