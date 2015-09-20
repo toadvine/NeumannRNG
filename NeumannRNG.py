@@ -14,16 +14,16 @@ def neu_rng(i):
     init_num = i
     counter = 0
     done = False
-    holder = set()
+    holder = list()
     while not done:
         i **= 2
         if len(str(i)) < 8:
             while len(str(i)) < 8:
-                i = "0" + str(i)
-        holder.update(i)
+                i = int("0" + str(i))
         if int(str(i)[2:6]) in holder:
             done = True
         else:
+            holder.append(i)
             i = int(str(i)[2:6])
         counter += 1
     return counter
